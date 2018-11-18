@@ -40,7 +40,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', 'styl'],
     alias: {
       'vue': 'mpvue',
       '@': resolve('src')
@@ -75,6 +75,11 @@ module.exports = {
             options: Object.assign({checkMPEntry: true}, vueLoaderConfig)
           },
         ]
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader',
+        include: [],  //必须加include：[]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
